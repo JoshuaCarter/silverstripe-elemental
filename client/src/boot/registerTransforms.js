@@ -5,6 +5,7 @@ import revertToBlockVersionMutation from 'state/history/revertToBlockVersionMuta
 import readBlocksForAreaQuery from 'state/editor/readBlocksForAreaQuery';
 import addElementToArea from 'state/editor/addElementMutation';
 import ArchiveAction from 'components/ElementActions/ArchiveAction';
+import DuplicateAction from 'components/ElementActions/DuplicateAction';
 import PublishAction from 'components/ElementActions/PublishAction';
 import SaveAction from 'components/ElementActions/SaveAction';
 import UnpublishAction from 'components/ElementActions/UnpublishAction';
@@ -75,8 +76,9 @@ export default () => {
   // Add elemental editor actions
   Injector.transform('element-actions', (updater) => {
     updater.component('ElementActions', SaveAction, 'ElementActionsWithSave');
-    updater.component('ElementActions', ArchiveAction, 'ElementActionsWithArchive');
     updater.component('ElementActions', PublishAction, 'ElementActionsWithPublish');
     updater.component('ElementActions', UnpublishAction, 'ElementActionsWithUnpublish');
+    updater.component('ElementActions', DuplicateAction, 'ElementActionsWithDuplicate');
+    updater.component('ElementActions', ArchiveAction, 'ElementActionsWithArchive');
   });
 };
